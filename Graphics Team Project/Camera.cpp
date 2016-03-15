@@ -39,8 +39,9 @@ void Camera::Update(){
 }
 
 void Camera::tilt(double angle){
+	double cosine = cos(angle * PI / 180.0),
+		sine = sin(angle * PI / 180.0);
 
-	//Do Later
 }
 void Camera::turn(double angle){
 	//Do Later 

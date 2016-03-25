@@ -25,9 +25,4 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Object Include="Graphics Team Project\spa.obj">
-      <Filter>Resource Files</Filter>
-    </Object>
-  </ItemGroup>
 </Project>

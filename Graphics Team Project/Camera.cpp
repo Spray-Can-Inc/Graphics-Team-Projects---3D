@@ -39,7 +39,7 @@ void Camera::Update(){
 }
 
 void Camera::tilt(double angle){
-	//start oc camera
+	//start on camera
 	double cosine = cos(angle * PI / 180.0),
 		sine = sin(angle * PI / 180.0);
 

@@ -10,8 +10,17 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="Object3D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cobject.h" />
+    <ClInclude Include="glcamera.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CDE6D018-C91F-4277-A3FB-F817945B2E9B}</ProjectGuid>
+    <ProjectGuid>{ADE70671-9616-4C15-BB10-63701FC8A371}</ProjectGuid>
     <RootNamespace>GraphicsTeamProject</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -47,6 +56,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glut32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -63,11 +73,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Graphics Team Project\Camera.cpp" />
-    <ClCompile Include="Graphics Team Project\GameEngine.cpp" />
-    <ClCompile Include="Graphics Team Project\Object3D.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

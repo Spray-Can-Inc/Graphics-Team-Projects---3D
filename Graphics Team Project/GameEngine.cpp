@@ -42,8 +42,8 @@ typedef struct {
 
 //Model_OBJ obj;
 Object3D *obj;
-Object3D obj2("spa.obj");
-Object3D obj3("spa.obj");
+Object3D obj2("spray can 2.obj");
+Object3D obj3("spray can 2.obj");
 glutWindow win;
 Camera cam;
 int mouse_x, mouse_y;
@@ -57,7 +57,7 @@ int mouse_x, mouse_y;
 ***************************************************************************/
 
 void initObjects(){
-	obj= new Object3D("spa.obj");
+	obj= new Object3D("spray can 2.obj");
 }
 
 /***************************************************************************
@@ -71,10 +71,11 @@ void updateGame(){
 	}
 	//cam.lookAt((mouse_x - 600.0) / 1200.0, (mouse_y - 400.0) / 800.0, 0);
 	(*obj).rotY++;
-	(*obj).xPos = 1;
+	(*obj).xPos = 0;
 	obj2.rotY--;
-	obj2.setLocation(-1, 0, 0);
-	obj3.setLocation(.3, 0, 0);	
+	obj3.rotY--;
+	obj2.setLocation(-4, 0, 0);
+	obj3.setLocation(4, 0, 0);	
 	glutPostRedisplay(); // must be last line of code
 }
 
@@ -83,8 +84,12 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity(); // camera functionality must be in display method
 	cam.Update();//MUST UPDATE CAMERA BEFORE DRAWING OBJECTS
+	glScalef(.1, .1, .1);
+	glColor3f(1.0, 1.0, 0.0);
 	(*obj).Draw();
+	glColor3f(0.0, 1.0, 1.0);
 	obj2.Draw();
+	glColor3f(1.0, 0.0, 1.0);
 	obj3.Draw();
 	glutSwapBuffers();
 	
@@ -116,6 +121,7 @@ void initialize()
 	glClearColor(0.0f, 0.1f, 0.0f, 0.5f);
 	glClearDepth(1.0f);
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_NORMALIZE);
 	glDepthFunc(GL_LEQUAL);
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 

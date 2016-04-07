@@ -62,6 +62,8 @@ void initObjects(){
 
 /***************************************************************************
 * Game Logic
+need to make some movement for the spray cans and may need to remove the other
+3 to test the movements
 ***************************************************************************/
 void updateGame(){
 	//cam.setLocation(0, 1, 4);
@@ -85,14 +87,13 @@ void display()
 	glLoadIdentity(); // camera functionality must be in display method
 	cam.Update();//MUST UPDATE CAMERA BEFORE DRAWING OBJECTS
 	glScalef(.1, .1, .1);
-	glColor3f(1.0, 1.0, 0.0);
+	glColor3f(1.0, 0.0, 0.0); //Set object 1 to red
 	(*obj).Draw();
-	glColor3f(0.0, 1.0, 1.0);
+	glColor3f(0.0, 1.0, 0.0); //Set object 2 to Green
 	obj2.Draw();
-	glColor3f(1.0, 0.0, 1.0);
+	glColor3f(0.0, 0.0, 1.0); //Set object 3 to blue
 	obj3.Draw();
 	glutSwapBuffers();
-	
 }
 
 

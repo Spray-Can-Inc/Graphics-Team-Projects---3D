@@ -40,6 +40,7 @@ typedef struct {
 	float z_far;
 } glutWindow;
 
+
 //Model_OBJ obj;
 Object3D *obj;
 Object3D obj2("spa.obj");

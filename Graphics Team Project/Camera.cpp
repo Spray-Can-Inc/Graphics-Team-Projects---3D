@@ -44,7 +44,8 @@ void Camera::tilt(double angle){
 
 }
 void Camera::turn(double angle){
-	//I will really do this later
+	//Do Later 
+
 }
 
 void Camera::rotate(double degrees, double x, double y, double z){

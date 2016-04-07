@@ -40,6 +40,7 @@ typedef struct {
 	float z_far;
 } glutWindow;
 
+
 //Model_OBJ obj;
 Object3D *obj;
 Object3D obj2("spray can 2.obj");
@@ -198,7 +199,7 @@ int main(int argc, char **argv)
 	// set window values
 	win.width = 1200;
 	win.height = 800;
-	win.title = "Game Engine"; //changed name
+	win.title = "OpenGL/GLUT OBJ Loader";
 	win.field_of_view_angle = 45;
 	win.z_near = 1.0f;
 	win.z_far = 500.0f;

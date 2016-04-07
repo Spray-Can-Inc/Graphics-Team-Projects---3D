@@ -200,7 +200,7 @@ int main(int argc, char **argv)
 	// set window values
 	win.width = 1200;
 	win.height = 800;
-	win.title = "OpenGL/GLUT OBJ Loader";
+	win.title = "GameEngine"; //Changed the name back to default for some reason, so I .... changed it back.
 	win.field_of_view_angle = 45;
 	win.z_near = 1.0f;
 	win.z_far = 500.0f;

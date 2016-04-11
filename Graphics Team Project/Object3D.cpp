@@ -81,6 +81,20 @@ bool Object3D::Load(char* filename)
 					&vertexBuffer[TotalConnectedPoints + 1],
 					&vertexBuffer[TotalConnectedPoints + 2]);
 
+				//build the bounding box
+				if (minX > vertexBuffer[TotalConnectedPoints])
+					minX = vertexBuffer[TotalConnectedPoints];
+				if (maxX < vertexBuffer[TotalConnectedPoints])
+					maxX = vertexBuffer[TotalConnectedPoints];
+				if (minY > vertexBuffer[TotalConnectedPoints + 1])
+					minY = vertexBuffer[TotalConnectedPoints + 1];
+				if (maxY < vertexBuffer[TotalConnectedPoints + 1])
+					maxY = vertexBuffer[TotalConnectedPoints + 1];
+				if (minZ > vertexBuffer[TotalConnectedPoints + 2])
+					minZ = vertexBuffer[TotalConnectedPoints + 2];
+				if (maxZ < vertexBuffer[TotalConnectedPoints + 2])
+					maxZ = vertexBuffer[TotalConnectedPoints + 2];
+
 				TotalConnectedPoints += POINTS_PER_VERTEX;					// Add 3 to the total connected points
 			}
 			if (line.c_str()[0] == 'f')										// The first character is an 'f': on this line is a point stored
@@ -156,6 +170,46 @@ void Object3D::Release()
 	free(this->Faces_Triangles);
 	free(this->normals);
 	free(this->vertexBuffer);
+}
+
+bool Object3D::isIntersecting(const Object3D obj) {
+	bool xAxis = false, yAxis = false, zAxis = false;
+	//check if objects 2 is in object 1
+	if (isBetween(obj.minX + obj.xPos, this->minX + this->xPos, this->maxX + this->xPos) ||
+		isBetween(obj.maxX + obj.xPos, this->minX + this->xPos, this->maxX + this->xPos)) {
+		xAxis = true;
+	}
+	if (isBetween(obj.minY + obj.yPos, this->minY + this->yPos, this->maxY + this->yPos) ||
+		isBetween(obj.maxY + obj.yPos, this->minY + this->yPos, this->maxY + this->yPos)) {
+		yAxis = true;
+	}
+	if (isBetween(obj.minZ + obj.zPos, this->minZ + this->zPos, this->maxZ + this->zPos) ||
+		isBetween(obj.maxZ + obj.zPos, this->minZ + this->zPos, this->maxZ + this->zPos)) {
+		zAxis = true;
+	}
+	//check if objects 1 is in object 2
+	if (isBetween(this->minX + this->xPos, obj.minX + obj.xPos, obj.maxX + obj.xPos) ||
+		isBetween(this->maxX + this->xPos, obj.minX + obj.xPos, obj.maxX + obj.xPos)) {
+		xAxis = true;
+	}
+	if (isBetween(this->minY + this->yPos, obj.minY + obj.yPos, obj.maxY + obj.yPos) ||
+		isBetween(this->maxY + this->yPos, obj.minY + obj.yPos, obj.maxY + obj.yPos)) {
+		yAxis = true;
+	}
+	if (isBetween(this->minZ + this->zPos, obj.minZ + obj.zPos, obj.maxZ + obj.zPos) ||
+		isBetween(this->maxZ + this->zPos, obj.minZ + obj.zPos, obj.maxZ + obj.zPos)) {
+		zAxis = true;
+	}
+
+	if (xAxis&&yAxis&&zAxis)
+		return true;
+	return false;
+}
+bool Object3D::isBetween(float value, float min, float max) {
+	if (value <= max && value >= min) {
+		return true;
+	}
+	return false;
 }
 
 void Object3D::Draw()

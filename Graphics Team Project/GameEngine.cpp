@@ -43,8 +43,8 @@ typedef struct {
 
 //Model_OBJ obj;
 Object3D *obj;
-Object3D obj2("spray can 2.obj");
-Object3D obj3("spray can 2.obj");
+//Object3D obj2("spray can 2.obj");
+//Object3D obj3("spray can 2.obj");
 glutWindow win;
 Camera cam;
 int mouse_x, mouse_y;
@@ -64,8 +64,7 @@ void initObjects(){
 
 /***************************************************************************
 * Game Logic
-need to make some movement for the spray cans and may need to remove the other
-3 to test the movements
+Now we need to keep the camera's focus on the spray can(Player)
 ***************************************************************************/
 void updateGame(){
 	//cam.setLocation(0, 1, 4);
@@ -74,12 +73,12 @@ void updateGame(){
 		cam.lookAt(0, 0, 0);
 	}
 	//cam.lookAt((mouse_x - 600.0) / 1200.0, (mouse_y - 400.0) / 800.0, 0);
-	(*obj).rotY++;
+	(*obj).rotY = 270;
 	(*obj).xPos = 0;
-	obj2.rotY--;
-	obj3.rotY--;
-	obj2.setLocation(-4, 0, 0);
-	obj3.setLocation(4, 0, 0);	
+	//obj2.rotY -= 0.1;
+	//obj3.rotY -= 0.1;
+	//obj2.setLocation(-4, 0, 0);
+	//obj3.setLocation(4, 0, 0);	
 	glutPostRedisplay(); // must be last line of code
 }
 
@@ -91,10 +90,10 @@ void display()
 	glScalef(.1, .1, .1);
 	glColor3f(1.0, 0.0, 0.0); //Set object 1 to red
 	(*obj).Draw();
-	glColor3f(0.0, 1.0, 0.0); //Set object 2 to Green
-	obj2.Draw();
-	glColor3f(0.0, 0.0, 1.0); //Set object 3 to blue
-	obj3.Draw();
+	//glColor3f(0.0, 1.0, 0.0); //Set object 2 to Green
+	//obj2.Draw();
+	//glColor3f(0.0, 0.0, 1.0); //Set object 3 to blue
+	//obj3.Draw();
 	glutSwapBuffers();
 }
 

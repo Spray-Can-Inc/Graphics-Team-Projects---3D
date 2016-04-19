@@ -35,6 +35,9 @@ void Camera::moveSide(double amount){
 }
 
 void Camera::Update(){
+	if (yPos <= 0) {
+		yPos = 0.6; //Keeps camera from going below the floor
+	}
 	gluLookAt(xPos, yPos, zPos, xFocus + xPos, yFocus + yPos, zFocus + zPos, 0, 1, 0);
 }
 

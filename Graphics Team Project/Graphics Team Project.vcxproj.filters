@@ -24,6 +24,9 @@
     <ClCompile Include="Object3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cobject.h">
@@ -32,12 +35,18 @@
     <ClInclude Include="glcamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="world.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ground.obj3d">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="spray can 2.obj3d">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="world.setup">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

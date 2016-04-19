@@ -14,6 +14,7 @@ Object3D::Object3D(char* filename)
 	Load(filename);
 }
 
+
 float* Object3D::calculateNormal(float *coord1, float *coord2, float *coord3)
 {
 	/* calculate Vector1 and Vector2 */

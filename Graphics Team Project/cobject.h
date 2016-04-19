@@ -23,6 +23,7 @@ protected:
 
 public:
 	Object3D(char *filename);
+	Object3D();
 	void Object3D::Draw();					// Draws the model on the screen
 	void Object3D::setLocation(float x, float y, float z);
 	void Object3D::setColor(float r, float g, float b);

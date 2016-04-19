@@ -23,8 +23,7 @@ same location of this file
 #include <fstream>
 #include <string>
 #include <vector>
-#include "cobject.h"
-#include "glcamera.h"
+#include "world.h"
 
 #define KEY_ESCAPE 27
 
@@ -42,8 +41,9 @@ typedef struct {
 
 
 //Model_OBJ obj;
-Object3D *obj;
-Object3D ground("ground.obj3d");
+/*Object3D *obj;
+Object3D ground("ground.obj3d");*/
+World world("world.setup");
 //Object3D obj3("spray can 2.obj");
 glutWindow win;
 Camera cam;
@@ -60,7 +60,7 @@ Spray can added
 ***************************************************************************/
 
 void initObjects(){
-	obj= new Object3D("spray can 2.obj3d");
+	//obj= new Object3D("spray can 2.obj3d");
 }
 
 /***************************************************************************
@@ -75,11 +75,9 @@ void updateGame(){
 		isFirstUpdate = false;
 	}
 	//cam.lookAt((mouse_x - 600.0) / 1200.0, (mouse_y - 400.0) / 800.0, 0);
-	(*obj).rotY = 0.1;
-	(*obj).xPos = 0;
-	(*obj).setScale(.1); // set object scale
-	(*obj).setColor(1, 0, 0); //set object color
-	ground.setColor(0, .7, 0);
+	//(*obj).rotY = 0.1;
+	//(*obj).xPos = 0;
+	
 	//obj2.rotY -= 0.1;
 	//obj3.rotY -= 0.1;
 	//obj2.setLocation(-2, 0, 0);
@@ -92,10 +90,11 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity(); // camera functionality must be in display method
 	cam.Update();//MUST UPDATE CAMERA BEFORE DRAWING OBJECTS
-	(*obj).Draw();
-	ground.Draw();
+	//(*obj).Draw();
+	//ground.Draw();
 	//glColor3f(0.0, 0.0, 1.0); //Set object 3 to blue
 	//obj3.Draw();
+	world.Draw();
 	glutSwapBuffers();
 }
 

@@ -1,0 +1,34 @@
+// below is how the file is formatted
+// f= file
+// o = create object
+// s = scale
+// c = color
+
+//sets the file name
+f "spray can 2.obj3d"
+//create an object using the file
+//at this position x y z pos in the world
+o 2 0 0
+// scales the object to .1
+s .1
+// sets the object to a r g b
+c .5 1 .7
+//object 2
+o 0 0 0
+c 1 0 0
+s .1
+
+//object 3
+o -2 0 0
+c 1 0 0
+s .1
+
+//object 4
+o 0 0 -2
+c 1 4 0
+s .1
+
+//the ground
+f "ground.obj3d"
+o 0 0 0
+c 0 1 0

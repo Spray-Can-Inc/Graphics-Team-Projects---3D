@@ -33,4 +33,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ground.obj3d">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="spray can 2.obj3d">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

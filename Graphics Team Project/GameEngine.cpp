@@ -43,11 +43,12 @@ typedef struct {
 
 //Model_OBJ obj;
 Object3D *obj;
-//Object3D obj2("spray can 2.obj");
+Object3D ground("ground.obj3d");
 //Object3D obj3("spray can 2.obj");
 glutWindow win;
 Camera cam;
 int mouse_x, mouse_y;
+bool isFirstUpdate = true;
 
 
 
@@ -59,7 +60,7 @@ Spray can added
 ***************************************************************************/
 
 void initObjects(){
-	obj= new Object3D("spray can 2.obj");
+	obj= new Object3D("spray can 2.obj3d");
 }
 
 /***************************************************************************
@@ -68,15 +69,17 @@ Now we need to keep the camera's focus on the spray can(Player)
 ***************************************************************************/
 void updateGame(){
 	//cam.setLocation(0, 1, 4);
-	if ((*obj).rotY < 3){
+	if (isFirstUpdate){
 		cam.setLocation(0, 1, 4);
 		cam.lookAt(0, 0, 0);
+		isFirstUpdate = false;
 	}
 	//cam.lookAt((mouse_x - 600.0) / 1200.0, (mouse_y - 400.0) / 800.0, 0);
 	(*obj).rotY = 0.1;
 	(*obj).xPos = 0;
 	(*obj).setScale(.1); // set object scale
 	(*obj).setColor(1, 0, 0); //set object color
+	ground.setColor(0, .7, 0);
 	//obj2.rotY -= 0.1;
 	//obj3.rotY -= 0.1;
 	//obj2.setLocation(-2, 0, 0);
@@ -90,8 +93,7 @@ void display()
 	glLoadIdentity(); // camera functionality must be in display method
 	cam.Update();//MUST UPDATE CAMERA BEFORE DRAWING OBJECTS
 	(*obj).Draw();
-	//glColor3f(0.0, 1.0, 0.0); //Set object 2 to Green
-	//obj2.Draw();
+	ground.Draw();
 	//glColor3f(0.0, 0.0, 1.0); //Set object 3 to blue
 	//obj3.Draw();
 	glutSwapBuffers();
@@ -120,7 +122,7 @@ void initialize()
 	gluPerspective(win.field_of_view_angle, aspect, win.z_near, win.z_far);
 	glMatrixMode(GL_MODELVIEW);
 	glShadeModel(GL_SMOOTH);
-	glClearColor(0.0f, 0.1f, 0.0f, 0.5f);
+	glClearColor(0.2f, 0.2f, 0.8f, 0.5f);
 	glClearDepth(1.0f);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_NORMALIZE);
@@ -148,23 +150,23 @@ void initialize()
 void keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
-	case KEY_ESCAPE:
-		exit(0);
-		break;
-	case 'w':
-		cam.move(.1);
-		break;
-	case 's':
-		cam.move(-.1);
-		break;
-	case 'a':
-		cam.moveSide(-.1);
-		break;
-	case 'd':
-		cam.moveSide(.1);
-		break;
-	default:
-		break;
+		case KEY_ESCAPE:
+			exit(0);
+			break;
+		case 'w':
+			cam.move(.1);
+			break;
+		case 's':
+			cam.move(-.1);
+			break;
+		case 'a':
+			cam.moveSide(-.1);
+			break;
+		case 'd':
+			cam.moveSide(.1);
+			break;
+		default:
+			break;
 	}
 }
 
@@ -177,7 +179,6 @@ void SpecialKey(int key, int x, int y)
 		break;
 	case GLUT_KEY_DOWN:
 		cam.rotate(-1, 1, 0, 0);
-
 		break;
 	case GLUT_KEY_LEFT:
 		cam.rotate(1, 0, 1, 0);

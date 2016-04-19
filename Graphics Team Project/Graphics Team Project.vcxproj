@@ -19,6 +19,10 @@
     <ClInclude Include="cobject.h" />
     <ClInclude Include="glcamera.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ground.obj3d" />
+    <None Include="spray can 2.obj3d" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{ADE70671-9616-4C15-BB10-63701FC8A371}</ProjectGuid>
     <RootNamespace>GraphicsTeamProject</RootNamespace>

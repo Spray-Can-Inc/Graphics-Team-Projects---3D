@@ -18,12 +18,15 @@ protected:
 	float* vertexBuffer;					// Stores the points which make the object
 	long TotalConnectedPoints;				// Stores the total number of connected verteces
 	long TotalConnectedTriangles;			// Stores the total number of connected triangles
-	float maxX = -9999, minX = 9999, maxY = -9999, minY = 9999, maxZ = -9999, minZ = 9999;
+	float maxX = -9999, minX = 9999, maxY = -9999, minY = 9999, maxZ = -9999, minZ = 9999,
+		scale=1, red=.8,green=.8,blue=.8;
 
 public:
 	Object3D(char *filename);
 	void Object3D::Draw();					// Draws the model on the screen
-	void Object3D::setLocation(float x, float y, float z);				
+	void Object3D::setLocation(float x, float y, float z);
+	void Object3D::setColor(float r, float g, float b);
+	void Object3D::setScale(float scale);
 	void Object3D::Release();
 	bool Object3D::isIntersecting(const Object3D obj);
 	float rotX = 0.0, rotY = 0.0,

@@ -75,6 +75,8 @@ void updateGame(){
 	//cam.lookAt((mouse_x - 600.0) / 1200.0, (mouse_y - 400.0) / 800.0, 0);
 	(*obj).rotY = 0.1;
 	(*obj).xPos = 0;
+	(*obj).setScale(.1); // set object scale
+	(*obj).setColor(1, 0, 0); //set object color
 	//obj2.rotY -= 0.1;
 	//obj3.rotY -= 0.1;
 	//obj2.setLocation(-2, 0, 0);
@@ -87,8 +89,6 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity(); // camera functionality must be in display method
 	cam.Update();//MUST UPDATE CAMERA BEFORE DRAWING OBJECTS
-	glScalef(.1, .1, .1);
-	glColor3f(1.0, 0.0, 0.0); //Set object 1 to red
 	(*obj).Draw();
 	//glColor3f(0.0, 1.0, 0.0); //Set object 2 to Green
 	//obj2.Draw();

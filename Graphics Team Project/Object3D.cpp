@@ -165,11 +165,21 @@ void Object3D::setLocation(float x, float y, float z){
 	zPos = z;
 }
 
+void Object3D::setScale(float scale) {
+	this->scale = scale;
+}
+
 void Object3D::Release()
 {
 	free(this->Faces_Triangles);
 	free(this->normals);
 	free(this->vertexBuffer);
+}
+
+void Object3D::setColor(float r, float g, float b) {
+	red = r;
+	green = g;
+	blue = b;
 }
 
 bool Object3D::isIntersecting(const Object3D obj) {
@@ -219,6 +229,8 @@ void Object3D::Draw()
 	glRotatef(rotX, 1, 0, 0);
 	glRotatef(rotY, 0, 1, 0);
 	glRotatef(rotZ, 0, 0, 1);
+	glScalef(scale, scale, scale);
+	glColor3f(red, green, blue);
 	glEnableClientState(GL_VERTEX_ARRAY);						// Enable vertex arrays
 	glEnableClientState(GL_NORMAL_ARRAY);						// Enable normal arrays
 	glVertexPointer(3, GL_FLOAT, 0, Faces_Triangles);				// Vertex Pointer to triangle array

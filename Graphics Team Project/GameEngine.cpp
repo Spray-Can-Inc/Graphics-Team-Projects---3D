@@ -39,12 +39,7 @@ typedef struct {
 	float z_far;
 } glutWindow;
 
-
-//Model_OBJ obj;
-/*Object3D *obj;
-Object3D ground("ground.obj3d");*/
 World world("world.setup");
-//Object3D obj3("spray can 2.obj");
 glutWindow win;
 Camera cam;
 int mouse_x, mouse_y;
@@ -60,7 +55,7 @@ Spray can added
 ***************************************************************************/
 
 void initObjects(){
-	//obj= new Object3D("spray can 2.obj3d");
+
 }
 
 /***************************************************************************
@@ -68,20 +63,22 @@ void initObjects(){
 Now we need to keep the camera's focus on the spray can(Player)
 ***************************************************************************/
 void updateGame(){
-	//cam.setLocation(0, 1, 4);
+	//This code runs once to setup camera
 	if (isFirstUpdate){
 		cam.setLocation(0, 1, 4);
 		cam.lookAt(0, 0, 0);
 		isFirstUpdate = false;
 	}
-	//cam.lookAt((mouse_x - 600.0) / 1200.0, (mouse_y - 400.0) / 800.0, 0);
-	//(*obj).rotY = 0.1;
-	//(*obj).xPos = 0;
-	
-	//obj2.rotY -= 0.1;
-	//obj3.rotY -= 0.1;
-	//obj2.setLocation(-2, 0, 0);
-	//obj3.setLocation(4, 0, 0);	
+	//=======sample code on how to select object out of world=========//
+	Object3D* can =world.getObjectByName("can 3");
+	if (can) //check for null pointer
+		(*can).rotY++;
+	can = world.getObjectByName("can 2");
+	if (can)
+		(*can).rotZ++;
+	//========== can name file in the .config file using (n) ==========//
+	//= objects can be given a name using (*obj).setName("new name"); =//
+
 	glutPostRedisplay(); // must be last line of code
 }
 
@@ -90,11 +87,7 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity(); // camera functionality must be in display method
 	cam.Update();//MUST UPDATE CAMERA BEFORE DRAWING OBJECTS
-	//(*obj).Draw();
-	//ground.Draw();
-	//glColor3f(0.0, 0.0, 1.0); //Set object 3 to blue
-	//obj3.Draw();
-	world.Draw();
+	world.Draw(); //VERY IMPORTANT
 	glutSwapBuffers();
 }
 

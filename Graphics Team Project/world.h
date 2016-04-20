@@ -17,5 +17,6 @@ public:
 	void World::Draw();					// Draws the model on the screen
 	void World::addObject(Object3D* obj);
 	void World::Release();
+	Object3D* World::getObjectByName(char* name);
 
 };

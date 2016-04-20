@@ -69,6 +69,14 @@ bool World::Load(char* filename)
 				sscanf_s(line.c_str(), " %f ", &scale);									
 				objects[OBJECT_COUNT - 1].setScale(scale);
 			}
+			if (line.c_str()[0] == 'n')										// The first character is a v: on this line is a vertex stored.
+			{
+				line[0] = ' ';											// Set first character to 0. This will allow us to use sscanf
+				size_t fPos = line.find_first_of("'\"");
+				size_t lPos = line.find_last_of("'\"");
+				string name = line.substr(fPos + 1, (lPos - fPos) - 1);
+				objects[OBJECT_COUNT - 1].setName((char*)name.c_str());
+			}
 		}
 		objFile.close();	//Close OBJ file
 		return true;
@@ -86,6 +94,16 @@ void World::Draw() {
 		objects[i].Draw();
 	}
 
+}
+
+Object3D* World::getObjectByName(char* name) {
+	for (int i = 0; i < OBJECT_COUNT; i++) {
+		//if found match
+		if (strcmp(objects[i].getName(), name)==0) {
+			return &objects[i];
+		}
+	}
+	return NULL;
 }
 
 void World::Release()

@@ -1,8 +1,9 @@
 // below is how the file is formatted
-// f= file
+// f = file
 // o = create object
 // s = scale
 // c = color
+// n = name
 
 //sets the file name
 f "spray can 2.obj3d"
@@ -17,18 +18,26 @@ c .5 1 .7
 o 0 0 0
 c 1 0 0
 s .1
+n "can 2"
 
 //object 3
 o -2 0 0
 c 1 0 0
 s .1
+n "can 3"
 
 //object 4
 o 0 0 -2
 c 1 4 0
 s .1
 
+//object 4
+o 0 2 -2
+c 1 1 1
+s .1
+
 //the ground
 f "ground.obj3d"
 o 0 0 0
 c 0 1 0
+n 'ground'

@@ -14,6 +14,8 @@ o 2 0 0
 s .1
 // sets the object to a r g b
 c .5 1 .7
+n "Player"
+
 //object 2
 o 0 0 0
 c 1 0 0
@@ -30,8 +32,9 @@ n "can 3"
 o 0 0 -2
 c 1 4 0
 s .1
+n "can 4"
 
-//object 4
+//object 5
 o 0 2 -2
 c 1 1 1
 s .1
@@ -40,4 +43,17 @@ s .1
 f "ground.obj3d"
 o 0 0 0
 c 0 1 0
-n 'ground'
+
+//Palm Tree
+f "palmTree.obj3d"
+o 4 0 0
+c 0 1 .2
+s .3
+n "Palm Tree"
+
+//Titled palm Tree
+f "tiltPalmTree.obj3d"
+o -4 0 0
+c 0 1 .2
+s .3
+n "Tilted Palm Tree"

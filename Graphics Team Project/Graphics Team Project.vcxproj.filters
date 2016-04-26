@@ -52,5 +52,8 @@
     <None Include="..\..\..\palmTree.obj3d">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="tiltPalmTree.obj3d">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

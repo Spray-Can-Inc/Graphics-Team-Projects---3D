@@ -175,6 +175,17 @@ void Object3D::Release()
 	free(this->Faces_Triangles);
 	free(this->normals);
 	free(this->vertexBuffer);
+	free(this->name);
+}
+
+void Object3D::setName(char* name) {
+	this->name = new char[strlen(name)];
+	strcpy_s(this->name, strlen(name)+1, name);
+	cout << this->name << endl;
+}
+
+char* Object3D::getName() {
+	return this->name;
 }
 
 void Object3D::setColor(float r, float g, float b) {

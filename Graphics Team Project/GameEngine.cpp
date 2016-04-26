@@ -72,9 +72,6 @@ void updateGame(){
 	//=======sample code on how to select object out of world=========//
 	Object3D* can =world.getObjectByName("Player");
 	if (can) //check for null pointer
-		(*can).zPos; //Tested Movement. Needs key controls
-	can = world.getObjectByName("");
-	if (can)
 		(*can).rotY++;
 	//========== can name file in the .config file using (n) ==========//
 	//= objects can be given a name using (*obj).setName("new name"); =//

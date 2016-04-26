@@ -159,10 +159,10 @@ void keyboard(unsigned char key, int x, int y)
 			exit(0);
 			break;
 		case 'w':
-			(*can).zPos += 0.05;
+			(*can).zPos -= 0.05;
 			break;
 		case 's':
-			(*can).zPos -= 0.05;
+			(*can).zPos += 0.05;
 			break;
 		case 'a':
 			(*can).xPos -= 0.05;

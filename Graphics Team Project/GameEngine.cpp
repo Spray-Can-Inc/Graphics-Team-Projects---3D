@@ -72,8 +72,22 @@ void updateGame(){
 		isFirstUpdate = false;
 	}
 	//=======sample code on how to select object out of world=========//
-	if (can) //check for null pointer
+	if (can) {//check for null pointer
 		cam.lookAt((*can).xPos, (*can).yPos, (*can).zPos);
+		if (cam.distance(*can) > 5) {
+			cam.move(.2);
+		}
+		if (cam.distance(*can) > 2) {
+			cam.move(-.2);
+		}
+		if (cam.yPos < 1) {
+			cam.setLocation(cam.xPos, 1, cam.zPos);
+		}
+		if (cam.yPos > 2) {
+			cam.setLocation(cam.xPos, 2, cam.zPos);
+		}
+		
+	}
 	//========== can name file in the .config file using (n) ==========//
 	//= objects can be given a name using (*obj).setName("new name"); =//
 

@@ -87,7 +87,7 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity(); // camera functionality must be in display method
 	cam.Update();//MUST UPDATE CAMERA BEFORE DRAWING OBJECTS
-	obj.Draw();
+	//obj.Draw();
 	world.Draw(); //VERY IMPORTANT
 	glutSwapBuffers();
 }

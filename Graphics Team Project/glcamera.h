@@ -1,6 +1,7 @@
 #include <cmath>
 #include <GL/gl.h>
 #include <GL/glut.h>
+#include "cobject.h"
 
 #define PI 3.14159265
 
@@ -19,6 +20,7 @@ public:
 	void Camera::moveSide(double amount); //moves the camera side to side relative to the direction it is facing
 	void Camera::turn(double angle);
 	void Camera::tilt(double angle);
+	double Camera::distance(const Object3D obj);
 	void Camera::Update();
 
 };

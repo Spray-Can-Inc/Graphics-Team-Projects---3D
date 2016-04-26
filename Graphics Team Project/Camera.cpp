@@ -50,7 +50,12 @@ void Camera::turn(double angle){
 	//Do Later 
 
 }
+double Camera::distance(const Object3D obj) {
+	return sqrt(((xPos - obj.xPos)*(xPos - obj.xPos)) + 
+		((yPos - obj.yPos)*(yPos - obj.yPos)) +
+		((zPos - obj.zPos)*(zPos - obj.zPos)));
 
+}
 void Camera::rotate(double degrees, double x, double y, double z){
 	double cosine = cos(degrees * PI / 180.0),
 		sine = sin(degrees * PI / 180.0);

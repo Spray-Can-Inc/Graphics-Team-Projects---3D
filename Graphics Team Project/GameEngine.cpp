@@ -85,7 +85,7 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity(); // camera functionality must be in display method
 	cam.Update();//MUST UPDATE CAMERA BEFORE DRAWING OBJECTS
-	obj.Draw();
+	//obj.Draw();
 	world.Draw(); //VERY IMPORTANT
 	glutSwapBuffers();
 }
@@ -151,10 +151,10 @@ void keyboard(unsigned char key, int x, int y)
 			(*can).zPos -= 0.05;
 			break;
 		case 'a':
-			(*can).xPos += 0.05;
+			(*can).xPos -= 0.05;
 			break;
 		case 'd':
-			(*can).xPos -= 0.05;
+			(*can).xPos += 0.05;
 			break;
 		default:
 			break;

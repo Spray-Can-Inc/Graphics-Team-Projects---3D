@@ -45,7 +45,7 @@ Camera cam;
 int mouse_x, mouse_y;
 bool isFirstUpdate = true;
 
-
+TextureObj obj("cude.obj3d","sand.bmp");
 
 
 
@@ -87,6 +87,7 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity(); // camera functionality must be in display method
 	cam.Update();//MUST UPDATE CAMERA BEFORE DRAWING OBJECTS
+	obj.Draw();
 	world.Draw(); //VERY IMPORTANT
 	glutSwapBuffers();
 }

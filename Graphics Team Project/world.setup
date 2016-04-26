@@ -16,28 +16,6 @@ s .1
 c .5 1 .7
 n "Player"
 
-//object 2
-o 0 0 0
-c 1 0 0
-s .1
-n "can 2"
-
-//object 3
-o -2 0 0
-c 1 0 0
-s .1
-n "can 3"
-
-//object 4
-o 0 0 -2
-c 1 4 0
-s .1
-n "can 4"
-
-//object 5
-o 0 2 -2
-c 1 1 1
-s .1
 
 //the ground
 f "ground.obj3d"

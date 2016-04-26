@@ -14,6 +14,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="Object3D.cpp" />
+    <ClCompile Include="TextureObj.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -23,10 +24,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\palmTree.obj3d" />
+    <None Include="cude.obj3d" />
     <None Include="ground.obj3d" />
     <None Include="spray can 2.obj3d" />
     <None Include="tiltPalmTree.obj3d" />
     <None Include="world.setup" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="sand.bmp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{ADE70671-9616-4C15-BB10-63701FC8A371}</ProjectGuid>

@@ -13,6 +13,11 @@ Object3D::Object3D(char* filename)
 	this->TotalConnectedPoints = 0;
 	Load(filename);
 }
+Object3D::Object3D()
+{
+	this->TotalConnectedTriangles = 0;
+	this->TotalConnectedPoints = 0;
+}
 
 
 float* Object3D::calculateNormal(float *coord1, float *coord2, float *coord3)

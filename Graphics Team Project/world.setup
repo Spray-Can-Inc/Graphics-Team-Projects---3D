@@ -13,7 +13,7 @@ o 2 0 0
 // scales the object to .1
 s .1
 // sets the object to a r g b
-c .5 1 .7
+c 0 1 .7
 n "Player"
 
 

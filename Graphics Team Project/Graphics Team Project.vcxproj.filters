@@ -49,5 +49,8 @@
     <None Include="world.setup">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\..\..\palmTree.obj3d">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

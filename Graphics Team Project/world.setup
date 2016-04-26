@@ -32,3 +32,9 @@ s .1
 f "ground.obj3d"
 o 0 0 0
 c 0 1 0
+
+//the palm tree for fun
+f "palmTree.obj3d"
+o 4 0 0
+c 0 1 .1
+s .3

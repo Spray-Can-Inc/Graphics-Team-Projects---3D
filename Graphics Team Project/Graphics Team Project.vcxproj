@@ -22,6 +22,7 @@
     <ClInclude Include="world.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\palmTree.obj3d" />
     <None Include="ground.obj3d" />
     <None Include="spray can 2.obj3d" />
     <None Include="world.setup" />

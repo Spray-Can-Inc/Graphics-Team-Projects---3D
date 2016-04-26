@@ -77,7 +77,7 @@ void updateGame(){
 		if (cam.distance(*can) > 5) {
 			cam.move(.2);
 		}
-		if (cam.distance(*can) > 2) {
+		if (cam.distance(*can) < 3) {
 			cam.move(-.2);
 		}
 		if (cam.yPos < 1) {

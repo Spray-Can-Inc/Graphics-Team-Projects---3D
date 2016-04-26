@@ -58,6 +58,8 @@ void initObjects(){
 
 }
 
+Object3D* can = world.getObjectByName("Player");
+
 /***************************************************************************
 * Game Logic
 Now we need to keep the camera's focus on the spray can(Player)
@@ -70,9 +72,8 @@ void updateGame(){
 		isFirstUpdate = false;
 	}
 	//=======sample code on how to select object out of world=========//
-	Object3D* can =world.getObjectByName("Player");
 	if (can) //check for null pointer
-		(*can).rotY++;
+		cam.lookAt((*can).xPos, (*can).yPos, (*can).zPos);
 	//========== can name file in the .config file using (n) ==========//
 	//= objects can be given a name using (*obj).setName("new name"); =//
 
@@ -144,16 +145,16 @@ void keyboard(unsigned char key, int x, int y)
 			exit(0);
 			break;
 		case 'w':
-			cam.move(.1);
+			(*can).zPos += 0.05;
 			break;
 		case 's':
-			cam.move(-.1);
+			(*can).zPos -= 0.05;
 			break;
 		case 'a':
-			cam.moveSide(-.1);
+			(*can).xPos += 0.05;
 			break;
 		case 'd':
-			cam.moveSide(.1);
+			(*can).xPos -= 0.05;
 			break;
 		default:
 			break;

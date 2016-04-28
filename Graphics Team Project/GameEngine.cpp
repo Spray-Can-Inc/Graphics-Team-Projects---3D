@@ -24,6 +24,7 @@ same location of this file
 #include <string>
 #include <vector>
 #include "world.h"
+#include "mmsystem.h"
 
 #define KEY_ESCAPE 27
 
@@ -47,7 +48,10 @@ bool isFirstUpdate = true;
 Object3D* can = world.getObjectByName("Player");
 TextureObj obj("cude.obj3d","sand.bmp");
 
+void bgm(void) {
+	PlaySound(TEXT("UpbeatFunk.wav"), NULL, SND_ASYNC | SND_FILENAME | SND_LOOP);
 
+}
 
 /***************************************************************************
 * Program code
@@ -161,6 +165,7 @@ void initialize()
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
+	bgm();
 }
 
 

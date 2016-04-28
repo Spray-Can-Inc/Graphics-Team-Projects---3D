@@ -73,4 +73,12 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\..\..\2015.Fall\Sound\gameMusic.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="UpbeatFunk.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+  </ItemGroup>
 </Project>

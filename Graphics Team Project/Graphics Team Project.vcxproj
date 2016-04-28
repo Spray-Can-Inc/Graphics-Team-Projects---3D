@@ -35,6 +35,10 @@
   <ItemGroup>
     <Image Include="sand.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\..\..\2015.Fall\Sound\gameMusic.mp3" />
+    <Media Include="UpbeatFunk.wav" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{ADE70671-9616-4C15-BB10-63701FC8A371}</ProjectGuid>
     <RootNamespace>GraphicsTeamProject</RootNamespace>
@@ -72,7 +76,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glut32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glut32.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

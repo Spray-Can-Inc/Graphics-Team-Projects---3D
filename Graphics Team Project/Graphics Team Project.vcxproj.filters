@@ -61,6 +61,12 @@
     <None Include="cude.obj3d">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="tree.obj3d">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="willow.obj3d">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="sand.bmp">

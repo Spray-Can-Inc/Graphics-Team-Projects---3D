@@ -33,6 +33,26 @@ n "Palm Tree"
 //Titled palm Tree
 f "tiltPalmTree.obj3d"
 o -4 0 0
-c 0 1 .2
+c 1 0 1
 s .3
 n "Tilted Palm Tree"
+
+//Winded Tree
+f "tree.obj3d"
+o -5 0 -7
+c 0 1 .5
+s .5
+
+o 5 0 7
+c 1 1 0
+s .5
+
+//Willows
+f "willow.obj3d"
+o 0 0 -10
+c 0 1 1
+s 2
+
+o 0 0 10
+c 1 .5 0
+s 2

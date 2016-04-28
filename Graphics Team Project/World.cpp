@@ -96,6 +96,26 @@ void World::Draw() {
 
 }
 
+void World::addObject(Object3D * obj)
+{
+}
+
+Object3D* World::getIntersectingObjects(const Object3D* obj,int * count)
+{
+	*count = 0;
+	Object3D* list = (Object3D*)malloc(OBJECT_COUNT * sizeof(Object3D));
+	for (int i = 0; i < OBJECT_COUNT; i++) {
+		bool intersect = objects[i].isIntersecting(*obj);
+		if (strcmp(objects[i].getName(), "Playere") == 0) {
+			if (intersect) {
+				list[*count] = objects[i];
+				*count++;
+			}
+		}
+	}
+	return list;
+}
+
 Object3D* World::getObjectByName(char* name) {
 	for (int i = 0; i < OBJECT_COUNT; i++) {
 		//if found match

@@ -16,6 +16,7 @@ public:
 	World(char *filename);
 	void World::Draw();					// Draws the model on the screen
 	void World::addObject(Object3D* obj);
+	Object3D* World::getIntersectingObjects(const Object3D* obj, int * count);
 	void World::Release();
 	Object3D* World::getObjectByName(char* name);
 

@@ -5,6 +5,8 @@
 #include <fstream>
 #include <iostream>
 
+#define PI 3.14159265
+
 class Object3D
 {
 
@@ -29,6 +31,7 @@ public:
 	void Object3D::setLocation(float x, float y, float z);
 	void Object3D::setColor(float r, float g, float b);
 	void Object3D::setScale(float scale);
+	void Object3D::move(float amount);
 	void Object3D::Release();
 	void Object3D::setName(char* name);
 	char* Object3D::getName();

@@ -44,7 +44,7 @@ glutWindow win;
 Camera cam;
 int mouse_x, mouse_y;
 bool isFirstUpdate = true;
-
+Object3D* can = world.getObjectByName("Player");
 TextureObj obj("cude.obj3d","sand.bmp");
 
 
@@ -58,7 +58,25 @@ void initObjects(){
 
 }
 
-Object3D* can = world.getObjectByName("Player");
+
+void updateCamera() {
+	if (can) {//check for null pointer
+		cam.lookAt((*can).xPos, (*can).yPos, (*can).zPos);
+		if (cam.distance(*can) > 5) {
+			cam.move(.1);
+		}
+		if (cam.distance(*can) < 3) {
+			cam.move(-.1);
+		}
+		if (cam.yPos < .5) {
+			cam.setLocation(cam.xPos, .5, cam.zPos);
+		}
+		if (cam.yPos > .9) {
+			cam.setLocation(cam.xPos, .9, cam.zPos);
+		}
+
+	}
+}
 
 /***************************************************************************
 * Game Logic
@@ -72,22 +90,16 @@ void updateGame(){
 		isFirstUpdate = false;
 	}
 	//=======sample code on how to select object out of world=========//
-	if (can) {//check for null pointer
-		cam.lookAt((*can).xPos, (*can).yPos, (*can).zPos);
-		if (cam.distance(*can) > 5) {
-			cam.move(.2);
+	updateCamera();
+	int count = 0;
+	Object3D* objects = world.getIntersectingObjects(can,&count);
+	for (int i = 0; i < count; i++) {
+		if (strcmp(objects[i].getName(), "no color") == 0) {
+			cout << "found intersect" << endl;
 		}
-		if (cam.distance(*can) < 3) {
-			cam.move(-.2);
-		}
-		if (cam.yPos < 1) {
-			cam.setLocation(cam.xPos, 1, cam.zPos);
-		}
-		if (cam.yPos > 2) {
-			cam.setLocation(cam.xPos, 2, cam.zPos);
-		}
-		
 	}
+	//delete the array of pointers
+	free(objects);
 	//========== can name file in the .config file using (n) ==========//
 	//= objects can be given a name using (*obj).setName("new name"); =//
 
@@ -159,16 +171,20 @@ void keyboard(unsigned char key, int x, int y)
 			exit(0);
 			break;
 		case 'w':
-			(*can).zPos -= 0.05;
+			//(*can).zPos -= 0.05;
+			can->move(-.05);
 			break;
 		case 's':
-			(*can).zPos += 0.05;
+			//(*can).zPos += 0.05;
+			can->move(.05);
 			break;
 		case 'a':
-			(*can).xPos -= 0.05;
+			//(*can).xPos -= 0.05;
+			can->rotY += 5;
 			break;
 		case 'd':
-			(*can).xPos += 0.05;
+			//(*can).xPos += 0.05;
+			can->rotY -= 5;
 			break;
 		default:
 			break;

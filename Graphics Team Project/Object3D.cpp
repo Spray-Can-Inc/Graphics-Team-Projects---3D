@@ -242,7 +242,7 @@ bool Object3D::isBetween(float value, float min, float max) {
 void Object3D::move(float amount) {
 	xPos += cos(rotY * PI / 180.0)*amount;
 	yPos += sin(rotX* PI / 180.0)*amount;
-	zPos += sin(rotY* PI / 180.0)*amount;
+	zPos += -sin(rotY* PI / 180.0)*amount;
 }
 
 void Object3D::Draw()

@@ -48,9 +48,10 @@ bool isFirstUpdate = true;
 Object3D* can = world.getObjectByName("Player");
 TextureObj obj("cude.obj3d","sand.bmp");
 
+//IITTT WOOOOORRRRKKKKSSSS
+//ANOOTHER LINNNEE ITTT WOOOORRKKKS
 void bgm(void) {
 	PlaySound(TEXT("UpbeatFunk.wav"), NULL, SND_ASYNC | SND_FILENAME | SND_LOOP);
-
 }
 
 /***************************************************************************

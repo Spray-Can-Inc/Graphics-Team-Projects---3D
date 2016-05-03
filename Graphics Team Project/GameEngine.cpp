@@ -67,7 +67,9 @@ void initObjects(){
 		if (strcmp(objs[i].getName(), "no color") == 0) {
 			objs[i].setColorRender(false);
 		}
+		
 	}
+	world.getObjectByName("ground")->setColorRender(false);
 }
 
 
@@ -129,7 +131,13 @@ void checkColorCollision(const Object3D* obj) {
 			//if (strcmp(objects[i].getName(), "Player") == 0) {
 			if (intersect) {
 				if (strcmp(list[i].getName(), "no color") == 0) {
-					list[i].setColorRender(true);
+					if (list[i].colorOn == false) {
+						list[i].setColorRender(true);
+						worldOneCount++;
+					}
+					if (worldOneCount == 6) {
+						world.getObjectByName("ground")->setColorRender(true);
+					}
 				}
 			}
 			//}

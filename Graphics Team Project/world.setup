@@ -21,7 +21,7 @@ n "Player"
 f "ground.obj3d"
 o 0 0 0
 c 0 1 0
-n "no color"
+n "ground"
 
 //Palm Tree
 f "palmTree.obj3d"

@@ -40,6 +40,7 @@ typedef struct {
 } glutWindow;
 
 World world("world.setup");
+World world2("simpleWorld.setup");
 glutWindow win;
 Camera cam;
 int mouse_x, mouse_y;
@@ -47,8 +48,9 @@ bool isFirstUpdate = true;
 Object3D* can = world.getObjectByName("Player");
 int worldOneCount = 0;
 //TextureObj obj("cude.obj3d","sand.bmp");
-
+int worldTwoCount = -1;
 void checkColorCollision(const Object3D* obj);
+void checkWorld2ColorCollision(const Object3D* obj);
 
 //IITTT WOOOOORRRRKKKKSSSS
 //ANOOTHER LINNNEE ITTT WOOOORRKKKS
@@ -62,6 +64,7 @@ Spray can added
 ***************************************************************************/
 
 void initObjects(){
+	//world one
 	Object3D* objs = world.getObjects();
 	for (int i = 0; i < world.objectCount(); i++) {
 		if (strcmp(objs[i].getName(), "no color") == 0) {
@@ -70,23 +73,45 @@ void initObjects(){
 		
 	}
 	world.getObjectByName("ground")->setColorRender(false);
+	//world two
+	objs = world2.getObjects();
+	for (int i = 0; i < world2.objectCount(); i++) {
+		if (strcmp(objs[i].getName(), "no color") == 0) {
+			objs[i].setColorRender(false);
+		}
+
+	}
+	world2.getObjectByName("ground")->setColorRender(false);
 }
 
 
 void updateCamera() {
 	if (can) {//check for null pointer
 		cam.lookAt((*can).xPos, (*can).yPos, (*can).zPos);
-		if (cam.distance(*can) > 5) {
-			cam.move(.1);
+		if (worldOneCount < 6) {
+			if (cam.distance(*can) > 5) {
+				cam.move(.1);
+			}
+			if (cam.distance(*can) < 3) {
+				cam.move(-.1);
+			}
+			if (cam.yPos < .5) {
+				cam.setLocation(cam.xPos, .5, cam.zPos);
+			}
+		
+			if (cam.yPos > .9) {
+				cam.setLocation(cam.xPos, .9, cam.zPos);
+			}
 		}
-		if (cam.distance(*can) < 3) {
-			cam.move(-.1);
+		else {
+			move(-.05);
+			cam.yPos += .1;
 		}
-		if (cam.yPos < .5) {
-			cam.setLocation(cam.xPos, .5, cam.zPos);
-		}
-		if (cam.yPos > .9) {
-			cam.setLocation(cam.xPos, .9, cam.zPos);
+		if (cam.yPos > 100) {
+			worldOneCount = 0;
+			worldTwoCount = 0;
+			cam.yPos = .9;
+			can = world2.getObjectByName("Player");
 		}
 
 	}
@@ -105,7 +130,11 @@ void updateGame(){
 	}
 	//=======sample code on how to select object out of world=========//
 	updateCamera();
-	checkColorCollision(can);
+	if (worldTwoCount == -1)
+		checkColorCollision(can);
+	else
+		checkWorld2ColorCollision(can);
+	
 	/*int count = 0;
 	Object3D* objects = world.getIntersectingObjects(can,&count);
 	for (int i = 0; i < count; i++) {
@@ -120,7 +149,30 @@ void updateGame(){
 
 	glutPostRedisplay(); // must be last line of code
 }
-
+void checkWorld2ColorCollision(const Object3D* obj) {
+	Object3D* list = world2.getObjects();
+	//Object3D* start = list;
+	for (int i = 0; i < world2.objectCount(); i++) {
+		//if not the same object
+		if (obj != &list[i]) {
+			bool intersect = list[i].isIntersecting(*obj);
+			//if (strcmp(objects[i].getName(), "Player") == 0) {
+			if (intersect) {
+				if (strcmp(list[i].getName(), "no color") == 0) {
+					if (list[i].colorOn == false) {
+						list[i].setColorRender(true);
+						worldTwoCount++;
+					}
+					if (worldTwoCount >= 1) {
+						world2.getObjectByName("ground")->setColorRender(true);
+						//worldOneCount++;
+					}
+				}
+			}
+			//}
+		}
+	}
+}
 void checkColorCollision(const Object3D* obj) {
 	Object3D* list = world.getObjects();
 	//Object3D* start = list;
@@ -135,8 +187,9 @@ void checkColorCollision(const Object3D* obj) {
 						list[i].setColorRender(true);
 						worldOneCount++;
 					}
-					if (worldOneCount == 6) {
+					if (worldOneCount >= 6) {
 						world.getObjectByName("ground")->setColorRender(true);
+						worldOneCount++;
 					}
 				}
 			}
@@ -151,7 +204,10 @@ void display()
 	glLoadIdentity(); // camera functionality must be in display method
 	cam.Update();//MUST UPDATE CAMERA BEFORE DRAWING OBJECTS
 	//obj.Draw();
-	world.Draw(); //VERY IMPORTANT
+	if (worldTwoCount == -1)
+		world.Draw(); //VERY IMPORTANT
+	else
+		world2.Draw();
 	glutSwapBuffers();
 }
 

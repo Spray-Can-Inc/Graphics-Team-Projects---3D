@@ -26,6 +26,7 @@
     <None Include="..\..\..\palmTree.obj3d" />
     <None Include="cude.obj3d" />
     <None Include="ground.obj3d" />
+    <None Include="simpleWorld.setup" />
     <None Include="spray can 2.obj3d" />
     <None Include="tiltPalmTree.obj3d" />
     <None Include="tree.obj3d" />

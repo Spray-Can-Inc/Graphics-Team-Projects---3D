@@ -2,7 +2,8 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include "cobject.h"
-
+#ifndef GLCAMERA
+#define GLCAMERA
 #define PI 3.14159265
 
 class Camera{
@@ -24,3 +25,4 @@ public:
 	void Camera::Update();
 
 };
+#endif

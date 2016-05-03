@@ -1,0 +1,17 @@
+f "spray can 2.obj3d"
+o 2 0 0
+s .1
+c 0 1 .7
+n "Player"
+
+//test can
+o 1 0 0
+c 1 0 0
+s .1
+n "no color"
+
+//the ground
+f "ground.obj3d"
+o 0 -2 0
+c 0 1 0
+n "no color"

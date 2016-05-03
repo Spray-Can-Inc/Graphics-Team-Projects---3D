@@ -25,7 +25,6 @@ same location of this file
 #include <vector>
 #include "world.h"
 #include "mmsystem.h"
-
 #define KEY_ESCAPE 27
 
 using namespace std;
@@ -40,13 +39,13 @@ typedef struct {
 	float z_far;
 } glutWindow;
 
-World world("world.setup");
+World world("simpleWorld.setup");
 glutWindow win;
 Camera cam;
 int mouse_x, mouse_y;
 bool isFirstUpdate = true;
 Object3D* can = world.getObjectByName("Player");
-TextureObj obj("cude.obj3d","sand.bmp");
+//TextureObj obj("cude.obj3d","sand.bmp");
 
 //IITTT WOOOOORRRRKKKKSSSS
 //ANOOTHER LINNNEE ITTT WOOOORRKKKS

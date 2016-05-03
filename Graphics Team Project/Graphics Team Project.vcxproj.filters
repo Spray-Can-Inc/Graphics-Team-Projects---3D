@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\3D Objects">
+      <UniqueIdentifier>{79657f2b-92c4-4c46-acfe-8db8692dcc17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Sounds">
+      <UniqueIdentifier>{fe2bc86e-ca86-42fd-b994-c6b5ae67339d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Images">
+      <UniqueIdentifier>{9eb22e86-c9aa-45fe-9acf-948e8af68b6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp">
@@ -43,42 +52,45 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ground.obj3d">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="spray can 2.obj3d">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="world.setup">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\..\..\palmTree.obj3d">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="tiltPalmTree.obj3d">
+    <None Include="simpleWorld.setup">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="cude.obj3d">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\3D Objects</Filter>
+    </None>
+    <None Include="ground.obj3d">
+      <Filter>Resource Files\3D Objects</Filter>
+    </None>
+    <None Include="..\..\..\palmTree.obj3d">
+      <Filter>Resource Files\3D Objects</Filter>
+    </None>
+    <None Include="spray can 2.obj3d">
+      <Filter>Resource Files\3D Objects</Filter>
+    </None>
+    <None Include="tiltPalmTree.obj3d">
+      <Filter>Resource Files\3D Objects</Filter>
     </None>
     <None Include="tree.obj3d">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\3D Objects</Filter>
     </None>
     <None Include="willow.obj3d">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\3D Objects</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="sand.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="..\..\..\..\2015.Fall\Sound\gameMusic.mp3">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Sounds</Filter>
     </Media>
     <Media Include="UpbeatFunk.wav">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Sounds</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="sand.bmp">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
   </ItemGroup>
 </Project>

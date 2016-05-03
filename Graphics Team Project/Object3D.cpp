@@ -173,6 +173,12 @@ void Object3D::setLocation(float x, float y, float z){
 
 void Object3D::setScale(float scale) {
 	this->scale = scale;
+	this->maxX *= this->scale;
+	this->maxY *= this->scale;
+	this->maxZ *= this->scale;
+	this->minX *= this->scale;
+	this->minY *= this->scale;
+	this->minZ *= this->scale;
 }
 
 void Object3D::Release()

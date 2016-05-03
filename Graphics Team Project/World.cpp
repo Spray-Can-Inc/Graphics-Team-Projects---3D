@@ -105,12 +105,15 @@ Object3D* World::getIntersectingObjects(const Object3D* obj,int * count)
 	*count = 0;
 	Object3D* list = (Object3D*)malloc(OBJECT_COUNT * sizeof(Object3D));
 	for (int i = 0; i < OBJECT_COUNT; i++) {
-		bool intersect = objects[i].isIntersecting(*obj);
-		if (strcmp(objects[i].getName(), "Playere") == 0) {
+		//if not the same object
+		if (obj != &objects[i]) {
+			bool intersect = objects[i].isIntersecting(*obj);
+			//if (strcmp(objects[i].getName(), "Player") == 0) {
 			if (intersect) {
 				list[*count] = objects[i];
-				*count++;
+				(*count)++;
 			}
+			//}
 		}
 	}
 	return list;

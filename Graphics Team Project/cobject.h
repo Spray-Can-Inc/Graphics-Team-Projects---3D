@@ -4,6 +4,8 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#ifndef COBJECT
+#define COBJECT
 
 #define PI 3.14159265
 
@@ -62,3 +64,5 @@ public:
 	void TextureObj::Release();
 
 };
+
+#endif

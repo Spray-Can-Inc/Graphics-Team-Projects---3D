@@ -1,5 +1,5 @@
 #pragma once
-//#include "cobject.h"
+#include "cobject.h"
 #include "glcamera.h"
 
 class World

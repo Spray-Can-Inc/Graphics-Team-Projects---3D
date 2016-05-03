@@ -39,13 +39,16 @@ typedef struct {
 	float z_far;
 } glutWindow;
 
-World world("simpleWorld.setup");
+World world("world.setup");
 glutWindow win;
 Camera cam;
 int mouse_x, mouse_y;
 bool isFirstUpdate = true;
 Object3D* can = world.getObjectByName("Player");
+int worldOneCount = 0;
 //TextureObj obj("cude.obj3d","sand.bmp");
+
+void checkColorCollision(const Object3D* obj);
 
 //IITTT WOOOOORRRRKKKKSSSS
 //ANOOTHER LINNNEE ITTT WOOOORRKKKS
@@ -59,7 +62,12 @@ Spray can added
 ***************************************************************************/
 
 void initObjects(){
-
+	Object3D* objs = world.getObjects();
+	for (int i = 0; i < world.objectCount(); i++) {
+		if (strcmp(objs[i].getName(), "no color") == 0) {
+			objs[i].setColorRender(false);
+		}
+	}
 }
 
 
@@ -95,19 +103,38 @@ void updateGame(){
 	}
 	//=======sample code on how to select object out of world=========//
 	updateCamera();
-	int count = 0;
+	checkColorCollision(can);
+	/*int count = 0;
 	Object3D* objects = world.getIntersectingObjects(can,&count);
 	for (int i = 0; i < count; i++) {
 		if (strcmp(objects[i].getName(), "no color") == 0) {
-			cout << "found intersect" << endl;
+			
 		}
 	}
 	//delete the array of pointers
-	free(objects);
+	free(objects);*/
 	//========== can name file in the .config file using (n) ==========//
 	//= objects can be given a name using (*obj).setName("new name"); =//
 
 	glutPostRedisplay(); // must be last line of code
+}
+
+void checkColorCollision(const Object3D* obj) {
+	Object3D* list = world.getObjects();
+	//Object3D* start = list;
+	for (int i = 0; i < world.objectCount(); i++) {
+		//if not the same object
+		if (obj != &list[i]) {
+			bool intersect = list[i].isIntersecting(*obj);
+			//if (strcmp(objects[i].getName(), "Player") == 0) {
+			if (intersect) {
+				if (strcmp(list[i].getName(), "no color") == 0) {
+					list[i].setColorRender(true);
+				}
+			}
+			//}
+		}
+	}
 }
 
 void display()

@@ -18,6 +18,9 @@ public:
 	void World::addObject(Object3D* obj);
 	Object3D* World::getIntersectingObjects(const Object3D* obj, int * count);
 	void World::Release();
+	Object3D* World::getObjects();
+	Object3D* World::getObject(Object3D* obj);
+	int World::objectCount();
 	Object3D* World::getObjectByName(char* name);
 
 };

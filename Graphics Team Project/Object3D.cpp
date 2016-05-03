@@ -205,6 +205,11 @@ void Object3D::setColor(float r, float g, float b) {
 	blue = b;
 }
 
+void Object3D::setColorRender(bool setting)
+{
+	colorOn = setting;
+}
+
 bool Object3D::isIntersecting(const Object3D obj) {
 	bool xAxis = false, yAxis = false, zAxis = false;
 	//check if objects 2 is in object 1
@@ -259,7 +264,10 @@ void Object3D::Draw()
 	glRotatef(rotY, 0, 1, 0);
 	glRotatef(rotZ, 0, 0, 1);
 	glScalef(scale, scale, scale);
-	glColor3f(red, green, blue);
+	if(colorOn)
+		glColor3f(red, green, blue);
+	else
+		glColor3f(.8, .8, .8);
 	glEnableClientState(GL_VERTEX_ARRAY);						// Enable vertex arrays
 	glEnableClientState(GL_NORMAL_ARRAY);						// Enable normal arrays
 	glVertexPointer(3, GL_FLOAT, 0, Faces_Triangles);				// Vertex Pointer to triangle array

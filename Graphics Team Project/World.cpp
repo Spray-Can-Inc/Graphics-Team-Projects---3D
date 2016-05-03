@@ -98,24 +98,30 @@ void World::Draw() {
 
 void World::addObject(Object3D * obj)
 {
+	objects[OBJECT_COUNT] = *obj;
+	OBJECT_COUNT++;
 }
 
 Object3D* World::getIntersectingObjects(const Object3D* obj,int * count)
 {
 	*count = 0;
 	Object3D* list = (Object3D*)malloc(OBJECT_COUNT * sizeof(Object3D));
+	//Object3D* start = list;
 	for (int i = 0; i < OBJECT_COUNT; i++) {
 		//if not the same object
 		if (obj != &objects[i]) {
 			bool intersect = objects[i].isIntersecting(*obj);
 			//if (strcmp(objects[i].getName(), "Player") == 0) {
 			if (intersect) {
-				list[*count] = objects[i];
+				Object3D* temp = &objects[i];
+
+				list++;
 				(*count)++;
 			}
 			//}
 		}
 	}
+	//list = (list - (*count));
 	return list;
 }
 
@@ -132,4 +138,25 @@ Object3D* World::getObjectByName(char* name) {
 void World::Release()
 {
 	free(this->objects);
+}
+
+Object3D * World::getObjects()
+{
+	return objects;
+}
+
+Object3D * World::getObject(Object3D * obj)
+{
+	for (int i = 0; i < OBJECT_COUNT; i++) {
+		//if the same object
+		if (obj == &objects[i]) {
+			return &objects[i];
+		}
+	}
+	return NULL;
+}
+
+int World::objectCount()
+{
+	return OBJECT_COUNT;
 }

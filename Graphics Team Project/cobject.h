@@ -25,6 +25,7 @@ protected:
 	float maxX = -9999, minX = 9999, maxY = -9999, minY = 9999, maxZ = -9999, minZ = 9999,
 		scale=1, red=.8,green=.8,blue=.8;
 	char* name = "unknown";
+	
 
 public:
 	Object3D(char *filename);
@@ -32,6 +33,7 @@ public:
 	void Object3D::Draw();					// Draws the model on the screen
 	void Object3D::setLocation(float x, float y, float z);
 	void Object3D::setColor(float r, float g, float b);
+	void Object3D::setColorRender(bool setting);
 	void Object3D::setScale(float scale);
 	void Object3D::move(float amount);
 	void Object3D::Release();
@@ -41,6 +43,7 @@ public:
 	float rotX = 0.0, rotY = 0.0,
 		rotZ = 0.0, xPos = 0.0, yPos = 0.0,
 		zPos = 0.0;
+	bool colorOn = true;
 
 };
 
